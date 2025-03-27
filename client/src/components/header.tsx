@@ -11,14 +11,14 @@ function Header(props) {
                     <h1 className="text-center text-2xl font-bold flex items-center justify-center gap-2"><TaskAlt
                         fontSize='large'/>TaskWise</h1>
                     <nav className="text-white p-4">
-                        <div className="container mx-auto flex justify-between gap-4">
-                            <Link to="/" className="text-lg hover:text-gray-300 flex items-center justify-center gap-1">
+                        <div className="container mx-auto font-bold flex justify-between gap-4 text-sm uppercase">
+                            <Link to="/" className="hover:text-gray-300 flex items-center justify-center gap-1">
                                 <Replay
-                        fontSize='medium'/>Home
+                        fontSize='small'/>Home
                             </Link>
-                            <Link to="/signup" className="text-lg hover:text-gray-300 flex items-center justify-center gap-1">
+                            <Link to="/signup" className="hover:text-gray-300 flex items-center justify-center gap-1">
                                 <Person
-                        fontSize='medium'/>Signup
+                        fontSize='small'/>Account
                             </Link>
                         </div>
                     </nav>
