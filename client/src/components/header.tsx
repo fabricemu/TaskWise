@@ -16,7 +16,7 @@ function Header(props) {
                                 <Replay
                         fontSize='small'/>Home
                             </Link>
-                            <Link to="/signup" className="hover:text-gray-300 flex items-center justify-center gap-1">
+                            <Link to="/login" className="hover:text-gray-300 flex items-center justify-center gap-1">
                                 <Person
                         fontSize='small'/>Account
                             </Link>
