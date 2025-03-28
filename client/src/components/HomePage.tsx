@@ -12,32 +12,32 @@ const HomePage = () => {
                 <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
                     <h2 className="text-2xl text-gray-700 font-bold mb-4 text-center">Welcome to TaskWise
                         Application</h2>
-                    <h1 className=' font-medium'>TaskWise is a web-based task management system designed to help users organize, track, and
+                    <h1 className='font-medium mb-5'>TaskWise is a web-based task management system designed to help users organize, track, and
                         manage their personal or team tasks effectively. </h1>
                     <div
-                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-center text-gray-800 font-bold mb-4">
-                        <div className="bg-gray-100 flex flex-col items-center gap-3 p-4 rounded-lg shadow">
+                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-center text-gray-800 font-bold my-5">
+                        <div className="bg-gray-100 hover:bg-green-50 flex flex-col items-center gap-3 p-4 rounded-lg shadow">
                             <i className="bg-green-950 rounded-full p-2 text-white">
                                 <Bolt className="w-6 h-6"/>
                             </i>
                             <span>Real-time progress tracking</span>
                         </div>
 
-                        <div className="bg-gray-100 flex flex-col items-center gap-3 p-4 rounded-lg shadow">
+                        <div className="bg-gray-100 hover:bg-green-50 flex flex-col items-center gap-3 p-4 rounded-lg shadow">
                             <i className="bg-green-950 rounded-full p-2 text-white">
                                 <LowPriority className="w-6 h-6"/>
                             </i>
                             <span>Intuitive task management</span>
                         </div>
 
-                        <div className="bg-gray-100 flex flex-col items-center gap-3 p-4 rounded-lg shadow">
+                        <div className="bg-gray-100 hover:bg-green-50 flex flex-col items-center gap-3 p-4 rounded-lg shadow">
                             <i className="bg-green-950 rounded-full p-2 text-white">
                                 <Workspaces className="w-6 h-6"/>
                             </i>
                             <span>Seamless collaboration</span>
                         </div>
 
-                        <div className="bg-gray-100 flex flex-col items-center gap-3 p-4 rounded-lg shadow">
+                        <div className="bg-gray-100 hover:bg-green-50 flex flex-col items-center gap-3 p-4 rounded-lg shadow">
                             <i className="bg-green-950 rounded-full p-2 text-white">
                                 <WifiOff className="w-6 h-6"/>
                             </i>
