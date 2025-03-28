@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react";
-import {getTasks, createTask, updateTask, deleteTask} from "../services/apiService"; // Backend API calls
+import {getTasks, createTask, updateTask, deleteTask} from "../services/apiService.tsx"; // Backend API calls
 import {useNavigate} from "react-router-dom";
 const Dashboard = () => {
     const [tasks, setTasks] = useState([]);

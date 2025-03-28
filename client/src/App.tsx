@@ -1,19 +1,18 @@
 import './styles/tailwindcss.css'
-import HomePage from "./components/HomePage.tsx";
 import {Route, Routes} from "react-router-dom";
+import HomePage from "./components/HomePage.tsx";
 import Signup from "./components/Signup.tsx";
 import Login from "./components/Login.tsx";
-import Dashboard from "./components/dashboard.tsx";
+import Dashboard from "./pages/dashboard.tsx";
 import ProtectedRoute from "./services/ProtectedRoute.tsx";
+import {JSX} from "react";
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("/service-worker.tsx");
 }
 
-function App() {
+const App: () => JSX.Element = () => {
     return (
         <>
-
-
             <div className="container">
                 <div className="min-h-screen w-screen bg-gray-100 flex flex-col">
                     <Routes>

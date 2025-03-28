@@ -17,13 +17,23 @@ const Signup = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!passwordRegex.test(formData.password)) {
+            setMessage(
+                'Password must be at least 8 characters long, include one uppercase letter, one lowercase letter, one number, and one special character.'
+            );
+            return;
+        }
+
         try {
             const response = await signup(formData);
-            setMessage("Signup successful!");
+            setMessage('Signup successful!');
         } catch (error) {
-            setMessage(error.response?.data?.error || "Error during signup");
+            setMessage(error.response?.data?.error || 'An error occurred. Please try again.');
         }
     };
+
 
     return (
         <>
@@ -54,8 +64,15 @@ const Signup = () => {
                             placeholder="Password"
                             value={formData.password}
                             onChange={handleChange}
-                            className="w-full p-2 border rounded"
+                            className={`w-full p-2 border rounded ${
+                                formData.password.length >= 8 ? 'border-green-500' : 'border-red-500'
+                            }`}
+                            required
                         />
+                        <p className="text-sm text-gray-600">
+                            Password must be at least 8 characters, include uppercase, lowercase, number, and special
+                            character.
+                        </p>
                         <button
                             type="submit"
                             className="bg-green-900 text-white py-2 px-4 rounded hover:bg-green-700"
@@ -63,7 +80,7 @@ const Signup = () => {
                             Submit
                         </button>
                     </form>
-                    {message && <p className="mt-4 text-red-500">{message}</p>}
+                    {message && <p className="mt-4 text-red-500 font-bold">{message}</p>}
                 </div>
             </div>
             <Footer/>
