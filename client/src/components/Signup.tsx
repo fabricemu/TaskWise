@@ -2,6 +2,7 @@ import {useState} from "react";
 import {signup} from "../services/apiService";
 import Header from "./header.tsx";
 import Footer from "./Footer.tsx";
+import {Link} from "react-router-dom";
 
 const Signup = () => {
     const [formData, setFormData] = useState({
@@ -77,8 +78,9 @@ const Signup = () => {
                             type="submit"
                             className="bg-green-900 text-white py-2 px-4 rounded hover:bg-green-700"
                         >
-                            Submit
+                            Create Account
                         </button>
+                        <p>Already have an account? <Link to='/login' className='text-green-700'>Login</Link></p>
                     </form>
                     {message && <p className="mt-4 text-red-500 font-bold">{message}</p>}
                 </div>

@@ -1,6 +1,9 @@
 import {useState, useEffect} from "react";
 import {getTasks, createTask, updateTask, deleteTask} from "../services/apiService.tsx"; // Backend API calls
 import {useNavigate} from "react-router-dom";
+import {isPrototypeOf} from "globals";
+import {SettingsPower} from "@mui/icons-material";
+
 const Dashboard = () => {
     const [tasks, setTasks] = useState([]);
     const [formData, setFormData] = useState({title: "", description: "", status: "pending"});
@@ -74,17 +77,17 @@ const Dashboard = () => {
     };
     return (
         <div className="min-h-screen bg-gray-100 p-6">
-            <header className="bg-blue-600 text-white p-4 flex justify-between items-center">
+            <header className="bg-green-800 text-white p-4 flex justify-between items-center">
                 <h1 className="text-2xl font-bold">Task Manager</h1>
                 <button
                     onClick={handleLogout}
-                    className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700"
+                    className="bg-red-700 text-white rounded hover:bg-red-800 p-1"
                 >
-                    Logout
+                    <SettingsPower fontSize='large'/>
                 </button>
                 <button
                     onClick={() => setEditTaskId(null)}
-                    className="bg-white text-blue-600 px-4 py-2 rounded hover:bg-gray-200"
+                    className="bg-white text-green-800 px-4 py-2 rounded hover:bg-gray-200"
                 >
                     Add Task
                 </button>
@@ -123,7 +126,7 @@ const Dashboard = () => {
                         </select>
                         <button
                             type="submit"
-                            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700"
+                            className="bg-green-900 text-white py-2 px-4 rounded hover:bg-green-700"
                         >
                             {editTaskId ? "Update Task" : "Add Task"}
                         </button>
@@ -136,13 +139,13 @@ const Dashboard = () => {
                     <div className="flex justify-end mb-4">
                         <button
                             onClick={() => handleSort("title")}
-                            className="text-blue-600 hover:underline mr-4"
+                            className="text-green-600 hover:underline mr-4"
                         >
                             Sort by Title
                         </button>
                         <button
                             onClick={() => handleSort("status")}
-                            className="text-blue-600 hover:underline"
+                            className="text-green-600 hover:underline"
                         >
                             Sort by Status
                         </button>
@@ -174,7 +177,7 @@ const Dashboard = () => {
                                     <td className="border border-gray-300 px-4 py-2">
                                         <button
                                             onClick={() => handleEditTask(task)}
-                                            className="text-blue-600 hover:underline mr-2"
+                                            className="text-green-600 hover:underline mr-2"
                                         >
                                             Edit
                                         </button>
@@ -195,7 +198,7 @@ const Dashboard = () => {
 
             {/* Notification */}
             {message && (
-                <div className="fixed bottom-4 right-4 bg-blue-500 text-white p-4 rounded">
+                <div className="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded">
                     {message}
                 </div>
             )}

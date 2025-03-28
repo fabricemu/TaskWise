@@ -35,7 +35,7 @@ const Login = () => {
             <Header/>
             <div className="flex-grow p-4">
                 <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
-                    <h1 className="text-2xl font-bold text-green-600 mb-4 text-center">Login</h1>
+                    <h1 className="text-2xl font-bold text-green-800 mb-4 text-center">User Login</h1>
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <input
                             type="email"
