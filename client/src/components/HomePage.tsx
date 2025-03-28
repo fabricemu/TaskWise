@@ -12,7 +12,7 @@ const HomePage = () => {
                 <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
                     <h2 className="text-2xl text-gray-700 font-bold mb-4 text-center">Welcome to TaskWise
                         Application</h2>
-                    <h1 className='text-xl font-medium'>TaskWise is a web-based task management system designed to help users organize, track, and
+                    <h1 className=' font-medium'>TaskWise is a web-based task management system designed to help users organize, track, and
                         manage their personal or team tasks effectively. </h1>
                     <div
                         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-center text-gray-800 font-bold mb-4">

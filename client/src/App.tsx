@@ -1,4 +1,4 @@
-import './styles/tailwindcss.css'
+import './index.css';
 import {Route, Routes} from "react-router-dom";
 import HomePage from "./components/HomePage.tsx";
 import Signup from "./components/Signup.tsx";
