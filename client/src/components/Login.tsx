@@ -35,8 +35,8 @@ const Login = () => {
             <Header/>
             <div className="flex-grow p-4">
                 <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
-                    <h1 className="text-2xl font-bold text-green-800 mb-4 text-center">User Login</h1>
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                    <h1 className="text-2xl font-bold text-emerald-800 mb-4 text-center">User Login</h1>
+                    <form onSubmit={handleSubmit} className="space-y-5">
                         <input
                             type="email"
                             name="email"
@@ -57,16 +57,16 @@ const Login = () => {
                         />
                         <button
                             type="submit"
-                            className="bg-green-900 text-white py-2 px-4 rounded hover:bg-green-700 w-full"
+                            className="bg-emerald-900 text-white py-2 px-4 rounded hover:bg-emerald-700 w-full"
                         >
                             Login
                         </button>
                     </form>
-                    {message && <p className="mt-4 text-red-500 text-center">{message}</p>}
+                    {message && <p className="mt-4 text-rose-500 text-center">{message}</p>}
 
                     <p className="mt-4 text-center text-gray-700">
                         Don't have an account?{" "}
-                        <Link to="/signup" className="text-green-500 hover:underline">
+                        <Link to="/signup" className="text-emerald-700 hover:underline">
                             Sign up
                         </Link>
                     </p>

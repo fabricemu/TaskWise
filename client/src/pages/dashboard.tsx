@@ -73,23 +73,18 @@ const Dashboard = () => {
     };
     const handleLogout = () => {
         localStorage.removeItem("token"); // Remove JWT from localStorage
-        navigate("/login"); // Redirect to login page
+        navigate("/login"); // roseirect to login page
     };
     return (
         <div className="min-h-screen bg-gray-100 p-6">
-            <header className="bg-green-800 text-white p-4 flex justify-between items-center">
+            <header className="bg-emerald-800 text-white p-4 flex justify-between items-center">
                 <h1 className="text-2xl font-bold">Task Manager</h1>
                 <button
                     onClick={handleLogout}
-                    className="bg-red-700 text-white rounded hover:bg-red-800 p-1"
+                    className="bg-rose-700 text-white rounded hover:bg-rose-800 p-1"
+                    title='Logout'
                 >
                     <SettingsPower fontSize='large'/>
-                </button>
-                <button
-                    onClick={() => setEditTaskId(null)}
-                    className="bg-white text-green-800 px-4 py-2 rounded hover:bg-gray-200"
-                >
-                    Add Task
                 </button>
             </header>
 
@@ -126,7 +121,7 @@ const Dashboard = () => {
                         </select>
                         <button
                             type="submit"
-                            className="bg-green-900 text-white py-2 px-4 rounded hover:bg-green-700"
+                            className="bg-emerald-900 text-white py-2 px-4 rounded hover:bg-emerald-700"
                         >
                             {editTaskId ? "Update Task" : "Add Task"}
                         </button>
@@ -139,13 +134,13 @@ const Dashboard = () => {
                     <div className="flex justify-end mb-4">
                         <button
                             onClick={() => handleSort("title")}
-                            className="text-green-600 hover:underline mr-4"
+                            className="text-emerald-600 hover:underline mr-4"
                         >
                             Sort by Title
                         </button>
                         <button
                             onClick={() => handleSort("status")}
-                            className="text-green-600 hover:underline"
+                            className="text-emerald-600 hover:underline"
                         >
                             Sort by Status
                         </button>
@@ -166,10 +161,10 @@ const Dashboard = () => {
                                     <td
                                         className={`border border-gray-300 px-4 py-2 ${
                                             task.status === "completed"
-                                                ? "text-green-600"
+                                                ? "text-emerald-600"
                                                 : task.status === "in-progress"
                                                     ? "text-yellow-600"
-                                                    : "text-red-600"
+                                                    : "text-rose-600"
                                         }`}
                                     >
                                         {task.status}
@@ -177,13 +172,13 @@ const Dashboard = () => {
                                     <td className="border border-gray-300 px-4 py-2">
                                         <button
                                             onClick={() => handleEditTask(task)}
-                                            className="text-green-600 hover:underline mr-2"
+                                            className="text-emerald-600 hover:underline mr-2"
                                         >
                                             Edit
                                         </button>
                                         <button
                                             onClick={() => handleDeleteTask(task.id)}
-                                            className="text-red-600 hover:underline"
+                                            className="text-rose-600 hover:underline"
                                         >
                                             Remove
                                         </button>
@@ -198,7 +193,7 @@ const Dashboard = () => {
 
             {/* Notification */}
             {message && (
-                <div className="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded">
+                <div className="fixed bottom-4 right-4 bg-emerald-500 text-white p-4 rounded">
                     {message}
                 </div>
             )}

@@ -41,7 +41,7 @@ const Signup = () => {
             <Header/>
             <div className="flex-grow p-4">
                 <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
-                    <h1 className="text-2xl font-bold mb-4">Signup</h1>
+                    <h1 className="text-2xl font-bold mb-4 text-emerald-800">Signup</h1>
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <input
                             type="text"
@@ -66,7 +66,7 @@ const Signup = () => {
                             value={formData.password}
                             onChange={handleChange}
                             className={`w-full p-2 border rounded ${
-                                formData.password.length >= 8 ? 'border-green-500' : 'border-red-500'
+                                formData.password.length >= 8 ? 'border-emerald-500' : 'border-rose-500'
                             }`}
                             required
                         />
@@ -76,13 +76,13 @@ const Signup = () => {
                         </p>
                         <button
                             type="submit"
-                            className="bg-green-900 text-white py-2 px-4 rounded hover:bg-green-700"
+                            className="bg-emerald-900 text-white py-2 px-4 rounded hover:bg-emerald-700"
                         >
                             Create Account
                         </button>
-                        <p>Already have an account? <Link to='/login' className='text-green-700'>Login</Link></p>
+                        <p>Already have an account? <Link to='/login' className='text-emerald-700'>Login</Link></p>
                     </form>
-                    {message && <p className="mt-4 text-red-500 font-bold">{message}</p>}
+                    {message && <p className="mt-4 text-rose-500 font-bold">{message}</p>}
                 </div>
             </div>
             <Footer/>
