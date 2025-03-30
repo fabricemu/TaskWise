@@ -17,28 +17,28 @@ const HomePage = () => {
                     <div
                         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-center text-gray-800 font-bold my-5">
                         <div className="bg-gray-100 hover:bg-emerald-50 flex flex-col items-center gap-3 p-4 rounded-lg shadow">
-                            <i className="bg-emerald-950 rounded-full p-2 text-white">
+                            <i className="bg-emerald-950 shadow-lg shadow-emerald-950/50  rounded-full p-2 text-white">
                                 <Bolt className="w-6 h-6" fontSize='large'/>
                             </i>
                             <span>Real-time progress tracking</span>
                         </div>
 
                         <div className="bg-gray-100 hover:bg-emerald-50 flex flex-col items-center gap-3 p-4 rounded-lg shadow">
-                            <i className="bg-emerald-950 rounded-full p-2 text-white">
+                            <i className="bg-emerald-950 shadow-lg shadow-emerald-950/50 rounded-full p-2 text-white">
                                 <LowPriority className="w-6 h-6" fontSize='large'/>
                             </i>
                             <span>Intuitive task management</span>
                         </div>
 
                         <div className="bg-gray-100 hover:bg-emerald-50 flex flex-col items-center gap-3 p-4 rounded-lg shadow">
-                            <i className="bg-emerald-950 rounded-full p-2 text-white">
+                            <i className="bg-emerald-950 shadow-lg shadow-emerald-950/50 rounded-full p-2 text-white">
                                 <Workspaces className="w-6 h-6" fontSize='large'/>
                             </i>
                             <span>Seamless collaboration</span>
                         </div>
 
                         <div className="bg-gray-100 hover:bg-emerald-50 flex flex-col items-center gap-3 p-4 rounded-lg shadow">
-                            <i className="bg-emerald-950 rounded-full p-2 text-white">
+                            <i className="bg-emerald-950 shadow-lg shadow-emerald-950/50 rounded-full p-2 text-white">
                                 <WifiOff className="w-6 h-6" fontSize='large'/>
                             </i>
                             <span>Offline access and cloud connectivity</span>
