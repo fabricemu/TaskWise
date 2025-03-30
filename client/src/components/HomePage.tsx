@@ -1,6 +1,5 @@
-import {TipsAndUpdates, Bolt, LowPriority, Workspaces, WifiOff} from "@mui/icons-material";
-import Footer from "./Footer.tsx";
-import Header from "./header.tsx";
+import {TipsAndUpdates, Bolt, LowPriority, Workspaces, WifiOff, TaskAlt, House, AccountCircleOutlined} from "@mui/icons-material";
+
 import {Link} from "react-router-dom";
 
 const HomePage = () => {
@@ -10,14 +9,22 @@ const HomePage = () => {
             <div className="flex static text-sm h-screen items-center justify-center bg-emerald-200/10 ">
                 <div
                     className="relative w-[80%] min-h-[400px] bg-white rounded-lg shadow-xl shadow-emerald-700/25 p-10 overflow-hidden z-10">
-
+                    <div className="flex justify-between relative z-20">
+                        <div className="flex items-center gap-1"><TaskAlt/>TaskWise</div>
+                        <Link to='/login'>
+                            <button
+                                className='bg-emerald-800 py-1 px-3 text-[10px] font-semibold rounded-3xl text-stone-200 flex gap-1 items-center'>
+                                <AccountCircleOutlined fontSize='small'/><span className='hidden md:block'>Account</span>
+                            </button>
+                        </Link>
+                    </div>
                     <h2 className="text-xl text-gray-700 font-bold mb-4 text-center">Welcome to TaskWise
                         Application</h2>
                     <h1 className='font-medium mb-5'>TaskWise is a web-based task management system designed to help
                         users organize, track, and
                         manage their personal or team tasks effectively. </h1>
                     <div
-                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-center text-gray-800 font-bold my-5">
+                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-center text-gray-800 font-bold my-5 overflow-hidden">
                         <div
                             className="bg-gray-100 hover:bg-emerald-50 flex flex-col items-center gap-3 p-4 rounded-lg shadow">
                             <i className="bg-emerald-950 shadow-lg shadow-emerald-950/50  rounded-full p-2 text-white">
