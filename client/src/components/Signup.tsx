@@ -49,12 +49,19 @@ const Signup = () => {
                             animate="show"
                             className='md:w-1/2 md:pr-5'>
                             <div className="flex justify-between relative z-20">
-                                <div className="flex items-center gap-1"><TaskAlt/>TaskWise</div>
+                                <div className="flex items-center gap-1 font-bold"><TaskAlt/>TaskWise</div>
                                 <Link to='/'>
-                                    <button
+                                    <motion.button
+                                        variants={fadeIn('left', 0.5)}
+                                        initial='hidden'
+                                        animate='show'
+                                        whileHover={{scale: 1.1, cursor: 'pointer'}}
+                                        whileTap={{scale: 0.95}}
+                                        whileDrag={{scale: 0.9, rotate: 10}}
+                                        drag
                                         className='bg-emerald-800 py-1 px-3 text-[10px] font-semibold rounded-3xl text-stone-200 flex gap-1 items-center'>
                                         <House fontSize='small'/><span className='hidden md:block'>Home</span>
-                                    </button>
+                                    </motion.button>
                                 </Link>
                             </div>
                             <motion.h1
@@ -95,15 +102,22 @@ const Signup = () => {
                                     required
                                     title='Password must be at least 8 characters long, include one uppercase letter, one lowercase letter, one number, and one special character.'
                                 />
-                                <button
+                                <motion.button
+                                    variants={fadeIn('down', 0.4)}
+                                    initial='hidden'
+                                    animate='show'
+                                    whileHover={{scale: 1.1, cursor: 'pointer'}}
+                                    whileTap={{scale: 0.95}}
+                                    whileDrag={{scale: 0.9, rotate: 10}}
+                                    drag
                                     type="submit"
                                     className="bg-emerald-900 text-white py-2 px-4 rounded hover:bg-emerald-700 flex gap-1 items-center"
                                 >
                                     <PersonAddAlt fontSize='small'/>
                                     Create Account
-                                </button>
+                                </motion.button>
                             </form>
-                            {message && <p className="mt-4 text-rose-500 font-bold">{message}</p>}
+                            {message && <p className='mt-4 text-rose-500 font-bold'>{message}</p>}
 
                             <p className="mt-4 text-center text-gray-700">
                                 Don't have an account?{" "}
@@ -130,7 +144,7 @@ const Signup = () => {
                 </div>
                 <div className="absolute size-96 top-0 left-0  z-1 ">
                     <div className='absolute -left-[50%] size-full bg-emerald-700/20 -top-[50%] rounded-full'></div>
-                    <div className='absolute -left-[50%] size-[130%] bg-emerald-700/20 -top-[50%] rounded-full'></div>
+                    <div className='absolute -left-[50%] size-[125%] bg-emerald-700/20 -top-[50%] rounded-full'></div>
                     <div className='relative -left-[50%] size-[150%] bg-emerald-700/20 -top-[50%] rounded-full'></div>
                 </div>
             </div>
