@@ -34,10 +34,21 @@ TaskWise is a web-based task management system designed to help users organize, 
 TaskWise/
 ├── client/
 │   ├── src/
+│   │   ├── assets/
 │   │   ├── components/
 │   │   ├── pages/
-│   │   ├── styles/
-│   │   └── serviceWorker.js
+│   │   └── services/
+│   ├── .env
+│   ├── .gitignore
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── README.md
+│   ├── tailwind.config.js
+│   ├── tsconfig.app.json
+│   ├── tsconfig.json
+│   ├── tsconfig.node.json
 │   └── vite.config.js
 ├── server/
 │   ├── routes/
@@ -52,7 +63,7 @@ TaskWise/
 
 ## 🚀 Getting Started
 
-### 1️⃣ Prerequisites
+### 1️⃣ Prerequisite
 Before you begin, ensure you have the following installed:
 - **Node.js**
 - **npm** or **yarn**
