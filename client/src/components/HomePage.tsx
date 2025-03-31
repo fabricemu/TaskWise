@@ -88,14 +88,18 @@ const HomePage = () => {
                         </motion.div>
                     </div>
 
-                    <div className="text-gray-700 p-4 bg-emerald-50 rounded flex items-center gap-3">
+                    <motion.div
+                        variants={fadeIn('right', 0.3)}
+                        initial='hidden'
+                        animate='show'
+                        className="text-gray-700 p-4 bg-emerald-50 rounded flex items-center gap-3">
                         <TipsAndUpdates fontSize='medium' className='text-yellow-700'/>
                         <p className='text-sm'><span className="font-medium"> Achieve your goals</span> wherever
                             you are, with a
                             responsive
                             and user-friendly design built for modern productivity.</p>
 
-                    </div>
+                    </motion.div>
                     <p className="text-gray-700 my-4">
                         Organize your tasks, track your progress, and get things done!
                     </p>
