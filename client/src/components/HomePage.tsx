@@ -38,9 +38,13 @@ const HomePage = () => {
                     </div>
                     <h2 className="text-xl text-gray-700 font-bold mb-4 text-center">Welcome to TaskWise
                         Application</h2>
-                    <h1 className='font-medium mb-5'>TaskWise is a web-based task management system designed to help
+                    <motion.h1
+                        variants={fadeIn('right', 0.4)}
+                        initial='hidden'
+                        animate='show'
+                        className='font-medium mb-5'>TaskWise is a web-based task management system designed to help
                         users organize, track, and
-                        manage their personal or team tasks effectively. </h1>
+                        manage their personal or team tasks effectively. </motion.h1>
                     <div
                         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-center text-gray-800 font-bold my-5 overflow-hidden">
                         <motion.div
