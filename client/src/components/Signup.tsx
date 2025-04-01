@@ -13,7 +13,7 @@ const Signup = () => {
         password: "",
     });
     const [message, setMessage] = useState("");
-
+    const [success, setSuccess] = useState('')
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value});
     };
@@ -31,7 +31,9 @@ const Signup = () => {
 
         try {
             const response = await signup(formData);
+
             setMessage('Signup successful!');
+            setSuccess('text-emerald-800')
         } catch (error) {
             setMessage(error.response?.data?.error || 'An error occurred. Please try again.');
         }
@@ -117,7 +119,7 @@ const Signup = () => {
                                     Create Account
                                 </motion.button>
                             </form>
-                            {message && <p className='mt-4 text-rose-500 font-bold'>{message}</p>}
+                            {message && <p className="mt-4 text-rose-500 font-bold">{message}</p>}
 
                             <p className="mt-4 text-center text-gray-700">
                                 Don't have an account?{" "}

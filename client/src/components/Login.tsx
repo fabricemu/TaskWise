@@ -4,7 +4,7 @@ import {login} from "../services/apiService";
 import task from '../assets/task.png'
 import {TaskAlt, House, ExitToApp} from "@mui/icons-material"; // API function for login
 import {motion} from "framer-motion";
-import {fadeIn} from '../variants.tsx'
+import {fadeIn, dotVariants} from '../variants.tsx'
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -31,12 +31,22 @@ const Login = () => {
             setMessage(error.response?.data?.error || "Invalid credentials. Try again!");
         }
     };
+    const dotVariants = {
+            pulse: {
+                scale: [1, 1.5, 1],
+                transition: {
+                    duration: 1.2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                },
+            }
+        }
 
     return (
         <>
             <div className="relative flex text-sm h-screen items-center justify-center bg-emerald-200/10 ">
                 <div
-                    className="relative w-[80%] h-[400px] bg-white rounded-lg shadow-xl shadow-emerald-700/25 p-10 overflow-hidden z-10">
+                    className="relative w-[80%] h-[400px] xl:min-h-[600px] bg-white rounded-lg shadow-xl shadow-emerald-700/25 p-10 overflow-hidden z-10">
 
                     <div className="relative md:flex md:gap-3 items-center justify-between z-5 text-[12px]">
                         <motion.div
@@ -98,12 +108,13 @@ const Login = () => {
                                         type="submit"
                                         className="bg-emerald-900 text-white text-sm py-1 px-4 rounded-2xl hover:bg-emerald-700 flex gap-1 items-center"
                                     ><ExitToApp fontSize='small'/> Login
+
                                     </motion.button>
                                 </div>
 
 
                             </form>
-                            {message && <p className="mt-4 text-rose-500 text-center">{message}</p>}
+                            {message && <p className="mt-4 text-rose-500 text-center">{message} </p>}
                             <p className="mt-4 text-center text-gray-700">
                                 Don't have an account?{" "}
                                 <Link to="/signup" className="text-emerald-700 font-semibold hover:underline">
@@ -111,6 +122,7 @@ const Login = () => {
                                 </Link>
                             </p>
                         </motion.div>
+
 
                     </div>
                     <div className="absolute top-0 overflow-hidden right-0 h-full w-[400px] border-0 hidden md:block">

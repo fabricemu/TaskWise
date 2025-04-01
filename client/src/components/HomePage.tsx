@@ -17,7 +17,7 @@ const HomePage = () => {
 
             <div className="flex static text-sm h-screen items-center justify-center bg-emerald-200/10 ">
                 <div
-                    className="relative w-[80%] min-h-[400px] bg-white rounded-lg shadow-xl shadow-emerald-700/25 p-10 overflow-hidden z-10">
+                    className="relative w-[80%] min-h-[400px] xl:min-h-[600px] bg-white rounded-lg shadow-xl shadow-emerald-700/25 p-10 overflow-hidden z-10 flex flex-col justify-around">
                     <div className="flex justify-between relative z-20">
                         <div className="flex items-center gap-1 font-bold"><TaskAlt/>TaskWise</div>
                         <Link to='/login'>
