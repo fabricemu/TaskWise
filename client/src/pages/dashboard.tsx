@@ -39,36 +39,36 @@ const Dashboard: React.FC = () => {
                 <ul className="flex flex-col h-full py-5 gap-2 text-sm">
                     <li>
                         <a href="#" onClick={() => handleNavigation("Home")}
-                           className="flex items-center gap-2 py-2 px-4 hover:bg-gray-700 rounded">
-                            <Home/> Home
+                           className="flex items-center gap-2 py-2 px-4 hover:bg-emerald-800/50 rounded">
+                            <Home className='text-emerald-800'/> Home
                         </a>
                     </li>
                     <li>
                         <a
                             href="#"
                             onClick={() => handleNavigation("Tasks")}
-                            className="flex items-center gap-2 py-2 px-4 hover:bg-gray-700 rounded"
+                            className="flex items-center gap-2 py-2 px-4 hover:bg-emerald-800/50 rounded"
                         >
-                            <ViewList/>View Tasks
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" onClick={() => handleNavigation("Settings")}
-                           className="flex items-center gap-2 py-2 px-4 hover:bg-gray-700 rounded">
-                            <Settings/> Settings
+                            <ViewList className='text-emerald-800'/>View Tasks
                         </a>
                     </li>
                     <li>
                         <a href="#" onClick={() => handleNavigation("Account")}
-                           className="flex items-center gap-2 py-2 px-4 hover:bg-gray-700 rounded">
-                            <AccountCircle/> Account
+                           className="flex items-center gap-2 py-2 px-4 hover:bg-emerald-800/50 rounded">
+                            <AccountCircle className='text-emerald-800'/> Account
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onClick={() => handleNavigation("Settings")}
+                           className="flex items-center gap-2 py-2 px-4 hover:bg-emerald-800/50 rounded">
+                            <Settings className='text-emerald-800'/> Settings
                         </a>
                     </li>
                     <li className="mt-auto">
                         <Link to='/'>
                             <a href="#"
-                               className="py-2 px-4 flex items-center font-semibold gap-2 hover:bg-gray-700 rounded">
-                                <PowerSettingsNew/>Sign out
+                               className="py-2 px-4 flex items-center font-semibold gap-2 hover:bg-emerald-800/50 rounded">
+                                <PowerSettingsNew className='text-emerald-800'/>Sign out
                             </a>
                         </Link>
 
@@ -80,7 +80,7 @@ const Dashboard: React.FC = () => {
             <main className="flex-1 md:ml-64 overflow-y-auto px-6">
                 <div className="flex justify-between sticky top-0 py-5 px-4 bg-gray-100">
                     <nav className="text-gray-600">
-                        <h2 className="text-2xl font-semibold">{currentPage}</h2>
+                        <h2 className="text-2xl font-semibold text-emerald-800">{currentPage}</h2>
                     </nav>
                     <motion.button
                         whileHover={{scale: 1.1}}
@@ -99,7 +99,7 @@ const Dashboard: React.FC = () => {
                     initial='hidden'
                     animate='show'
                     exit='hidden'
-                    className="bg-white p-4 shadow rounded">
+                    className="rounded">
                     {activeComponent === "Tasks" && <ViewTasks/>}
                     {activeComponent === "Home" && <Index/>}
                     {activeComponent === "Account" && <Account/>}
