@@ -31,17 +31,17 @@ const Index = () => {
                     <h3 className="text-md font-semibold">Total Tasks</h3>
                     <p className="text-xl">{taskStats.total}</p>
                 </div>
-                <div className="bg-emerald-100 p-4 rounded shadow hover:bg-emerald-200 transition duration-300">
+                <div className="bg-gray-100 p-4 rounded shadow hover:bg-emerald-200 transition duration-300">
                     <h3 className="text-xl font-semibold">Completed</h3>
-                    <p className="text-2xl">{taskStats.completed}</p>
+                    <p className="text-xl">{taskStats.completed}</p>
                 </div>
-                <div className="bg-emerald-100 p-4 rounded shadow hover:bg-emerald-200 transition duration-300">
+                <div className="bg-gray-100 p-4 rounded shadow hover:bg-emerald-200 transition duration-300">
                     <h3 className="text-xl font-semibold">In Progress</h3>
-                    <p className="text-2xl">{taskStats.inProgress}</p>
+                    <p className="text-xl">{taskStats.inProgress}</p>
                 </div>
-                <div className="bg-emerald-100 p-4 rounded shadow hover:bg-emerald-200 transition duration-300">
+                <div className="bg-gray-100 p-4 rounded shadow hover:bg-emerald-200 transition duration-300">
                     <h3 className="text-xl font-semibold">Pending</h3>
-                    <p className="text-2xl">{taskStats.pending}</p>
+                    <p className="text-xl">{taskStats.pending}</p>
                 </div>
             </div>
         </>
@@ -49,3 +49,4 @@ const Index = () => {
 };
 
 export default Index;
+
