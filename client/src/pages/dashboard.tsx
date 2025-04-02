@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Home, TaskAlt, ViewList, Settings, PowerSettingsNew, AccountCircle} from "@mui/icons-material";
 import {Link} from "react-router-dom";
 import {motion} from "framer-motion";
@@ -7,11 +7,14 @@ import Index from "./Index.tsx";
 import AddTask from "./AddTask.tsx";
 import ViewTasks from "./ViewTasks.tsx";
 import Account from "./Account.tsx";
+import {getTasks} from "../services/apiService.tsx";
 
 const Dashboard: React.FC = () => {
     const [currentPage, setCurrentPage] = useState("Home");
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const [activeComponent, setActiveComponent] = useState('Home')
+    const [activeComponent, setActiveComponent] = useState('Home');
+
+
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
@@ -75,7 +78,7 @@ const Dashboard: React.FC = () => {
 
             {/* Main Content */}
             <main className="flex-1 md:ml-64 overflow-y-auto px-6">
-                <div className="flex justify-between sticky top-0 py-5 px-4">
+                <div className="flex justify-between sticky top-0 py-5 px-4 bg-gray-100">
                     <nav className="text-gray-600">
                         <h2 className="text-2xl font-semibold">{currentPage}</h2>
                     </nav>
@@ -107,3 +110,4 @@ const Dashboard: React.FC = () => {
 };
 
 export default Dashboard;
+
