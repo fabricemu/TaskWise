@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {getTasks} from "../services/apiService.tsx";
-import {ArrowRight} from "@mui/icons-material";
-
+import {KeyboardArrowRight} from "@mui/icons-material";
+import {motion} from "framer-motion";
+import {hoverListEffect} from "../variants.tsx";
 
 const Index = () => {
     const [tasks, setTasks] = useState([]);
@@ -49,10 +50,17 @@ const Index = () => {
                 <h4 className="text-md font-semibold text-emerald-800 mb-2">Completed</h4>
                 <ul>
                     {tasks.filter(task => task.status === 'completed').map((task, index) => (
-                        <li key={index}
-                            className="text-gray-700 flex justify-between items-center bg-white px-4 py-2 rounded shadow-md mb-4 hover:bg-emerald-50">{task.title}
+                        <motion.li
+                            key={index}
+                            variants={hoverListEffect()}
+                            initial='hidden'
+                            whileHover='hover'
+                            whileTap='tap'
+                            animate='show'
+                            exit='hidden'
+                            className="text-gray-700 flex justify-between items-center bg-white p-4 rounded shadow-md mb-2">{task.title}
                             <span
-                                className='font-bold'><ArrowRight fontSize='large'/></span></li>
+                                className='font-bold'><KeyboardArrowRight/></span></motion.li>
                     ))}
                 </ul>
             </div>
@@ -62,9 +70,9 @@ const Index = () => {
                 <ul>
                     {tasks.filter(task => task.status === 'pending').map((task, index) => (
                         <li key={index}
-                            className="text-gray-700 flex justify-between items-center  bg-white px-4 py-2 rounded shadow-md mb-4">{task.title}
+                            className="text-gray-700 flex justify-between items-center  bg-white p-4 rounded shadow-md mb-2">{task.title}
                             <span
-                                className='font-bold'><ArrowRight fontSize='large'/></span></li>
+                                className='font-bold'><KeyboardArrowRight/></span></li>
                     ))}
                 </ul>
             </div>

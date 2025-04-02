@@ -64,18 +64,21 @@ export const slideIn = () => {
     };
 }
 
-export const hoverEffect = () => {
+export const hoverListEffect = () => {
     return {
         hover: {
-            scale: 1.05,
+            scale: 1.01,
+            cursor: "pointer",
+            boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
             transition: {
                 type: "spring",
-                stiffness: 300,
-                damping: 20,
+                // stiffness: 300,
+                // damping: 20,
             },
         },
         tap: {
-            scale: 0.95,
+            scale: 0.97,
+            boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.2)",
             transition: {
                 type: "spring",
                 stiffness: 300,
