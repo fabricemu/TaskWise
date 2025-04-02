@@ -1,14 +1,17 @@
 import React, {useState} from "react";
-import {Home, TaskAlt,ViewList, Settings, PowerSettingsNew} from "@mui/icons-material";
+import {Home, TaskAlt, ViewList, Settings, PowerSettingsNew, AccountCircle} from "@mui/icons-material";
 import {Link} from "react-router-dom";
 import {motion} from "framer-motion";
-import {fadeIn} from "../variants.tsx";
+import {fadeIn, popUp} from "../variants.tsx";
+import Index from "./Index.tsx";
 import AddTask from "./AddTask.tsx";
 import ViewTasks from "./ViewTasks.tsx";
+import Account from "./Account.tsx";
+
 const Dashboard: React.FC = () => {
     const [currentPage, setCurrentPage] = useState("Home");
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const [activeComponent, setActiveComponent] = useState()
+    const [activeComponent, setActiveComponent] = useState('Home')
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
@@ -25,6 +28,7 @@ const Dashboard: React.FC = () => {
                 variants={fadeIn('right', 0.1)}
                 initial='hidden'
                 animate='show'
+                exit='hidden'
                 className={`fixed left-0 top-0 h-full w-64 bg-gray-200 p-6 md:block z-2 ${isSidebarOpen ? 'block' : 'hidden'}`}>
                 <div className="flex items-center gap-1 font-bold text-emerald-800">
                     <TaskAlt/> TaskWise
@@ -39,7 +43,7 @@ const Dashboard: React.FC = () => {
                     <li>
                         <a
                             href="#"
-                            onClick={() => handleNavigation("ViewTasks")}
+                            onClick={() => handleNavigation("Tasks")}
                             className="flex items-center gap-2 py-2 px-4 hover:bg-gray-700 rounded"
                         >
                             <ViewList/>View Tasks
@@ -49,6 +53,12 @@ const Dashboard: React.FC = () => {
                         <a href="#" onClick={() => handleNavigation("Settings")}
                            className="flex items-center gap-2 py-2 px-4 hover:bg-gray-700 rounded">
                             <Settings/> Settings
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onClick={() => handleNavigation("Account")}
+                           className="flex items-center gap-2 py-2 px-4 hover:bg-gray-700 rounded">
+                            <AccountCircle/> Account
                         </a>
                     </li>
                     <li className="mt-auto">
@@ -64,10 +74,10 @@ const Dashboard: React.FC = () => {
             </motion.aside>
 
             {/* Main Content */}
-            <main className="flex-1 md:ml-64 overflow-y-auto p-6">
-                <div className="flex justify-between sticky top-0 bg-stone-200">
-                    <nav className="text-gray-600 text-sm mb-4">
-                        <span>Dashboard &gt; {currentPage}</span>
+            <main className="flex-1 md:ml-64 overflow-y-auto px-6">
+                <div className="flex justify-between sticky top-0 py-5 px-4">
+                    <nav className="text-gray-600">
+                        <h2 className="text-2xl font-semibold">{currentPage}</h2>
                     </nav>
                     <motion.button
                         whileHover={{scale: 1.1}}
@@ -76,18 +86,21 @@ const Dashboard: React.FC = () => {
                         ☰
                     </motion.button>
                 </div>
-                <h2 className="text-2xl font-semibold mb-4">{currentPage}</h2>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/*{Array.from({length: 2}, (_, i) => (*/}
-                    {/*    <div key={i} className="bg-white p-4 shadow rounded">*/}
-                    {/*        Card {i + 1}*/}
-                    {/*    </div>*/}
-                    {/*))}*/}
                     {activeComponent === "AddTask" && <AddTask/>}
                 </div>
-                <div className="bg-white p-4 shadow rounded">
-                    {activeComponent === "ViewTasks" && <ViewTasks/>}
-                </div>
+                <motion.div
+                    key={activeComponent}
+                    variants={popUp('up', 0.3)}
+                    initial='hidden'
+                    animate='show'
+                    exit='hidden'
+                    className="bg-white p-4 shadow rounded">
+                    {activeComponent === "Tasks" && <ViewTasks/>}
+                    {activeComponent === "Home" && <Index/>}
+                    {activeComponent === "Account" && <Account/>}
+                </motion.div>
             </main>
         </div>
     );
