@@ -45,3 +45,42 @@ export const popUp = (
         },
     };
 };
+
+export const slideIn = () => {
+    return {
+        hidden: {
+            x: 200,
+            opacity: 0,
+        },
+        show: {
+            x: 0,
+            opacity: 1,
+            transition: {
+                type: "spring",
+                duration: 0.5,
+                ease: [0.25, 0.25, 0.25, 0.75],
+            },
+        },
+    };
+}
+
+export const hoverEffect = () => {
+    return {
+        hover: {
+            scale: 1.05,
+            transition: {
+                type: "spring",
+                stiffness: 300,
+                damping: 20,
+            },
+        },
+        tap: {
+            scale: 0.95,
+            transition: {
+                type: "spring",
+                stiffness: 300,
+                damping: 20,
+            },
+        },
+    };
+}
