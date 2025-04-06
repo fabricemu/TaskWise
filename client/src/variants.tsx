@@ -87,6 +87,23 @@ export const hoverListEffect = () => {
         },
     };
 }
+export const dotVariants = (delay:number) => {
+        return {
+            hidden: {
+                scale: 1,
+            },
+            pulse: {
+                scale: [1, 1.5, 1],
+                transition: {
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay,
+                },
+            }
+        }
+    }
+
 export const loadingTreeDotsPulse = () => {
     return {
         pulse: {

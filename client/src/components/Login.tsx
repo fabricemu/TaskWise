@@ -11,6 +11,7 @@ const Login = () => {
         email: "",
         password: "",
     });
+    const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
 
@@ -23,7 +24,7 @@ const Login = () => {
         try {
             const response = await login(formData); // Call API to log in
             localStorage.setItem("token", response.token); // Save JWT token
-            setMessage("Login successful! Redirecting...");
+            setIsLoading(true);
             setTimeout(() => {
                 navigate("/dashboard"); // Navigate to Dashboard
             }, 2000);
@@ -31,16 +32,7 @@ const Login = () => {
             setMessage(error.response?.data?.error || "Invalid credentials. Try again!");
         }
     };
-    const dotVariants = {
-            pulse: {
-                scale: [1, 1.5, 1],
-                transition: {
-                    duration: 1.2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                },
-            }
-        }
+
 
     return (
         <>
@@ -96,7 +88,7 @@ const Login = () => {
                                     required
                                 />
                                 <div className="flex justify-between items-center">
-                                    <h4 className="text emerald-700">Forget Password?</h4>
+
                                     <motion.button
                                         variants={fadeIn('up', 0.2)}
                                         initial='hidden'
@@ -106,10 +98,32 @@ const Login = () => {
                                         whileDrag={{scale: 0.9, rotate: 10}}
                                         drag
                                         type="submit"
-                                        className="bg-emerald-900 text-white text-sm py-1 px-4 rounded-2xl hover:bg-emerald-700 flex gap-1 items-center"
-                                    ><ExitToApp fontSize='small'/> Login
-
+                                        className="bg-emerald-900 text-white text-sm font-semibold py-1 px-2 rounded-lg hover:bg-emerald-700 flex gap-2 items-center"
+                                    ><ExitToApp fontSize='small'/>
+                                        {isLoading ? (
+                                            <span
+                                                className='relative flex items-center justify-center gap-2 text-white'> Login
+                                        <motion.div
+                                            variants={dotVariants(0)}
+                                            initial='hidden'
+                                            animate='pulse'
+                                            className='w-2 h-2 bg-white rounded-full'>
+                                        </motion.div>
+                                        <motion.div
+                                            variants={dotVariants(0.3)}
+                                            initial='hidden'
+                                            animate='pulse'
+                                            className='w-2 h-2 bg-white rounded-full'>
+                                        </motion.div>
+                                        <motion.div
+                                            variants={dotVariants(0.6)}
+                                            initial='hidden'
+                                            animate='pulse'
+                                            className='w-2 h-2 bg-white rounded-full'>
+                                        </motion.div>
+                                    </span>) : ('Login')}
                                     </motion.button>
+                                    <h4 className="text emerald-700">Forget Password?</h4>
                                 </div>
 
 
@@ -119,27 +133,6 @@ const Login = () => {
                                 Don't have an account?{" "}
                                 <Link to="/signup" className="text-emerald-700 font-semibold hover:underline">
                                     Sign up
-                                    <span className='relative flex items-center justify-center gap-2'>
-                                        <motion.div
-                                            variants={dotVariants}
-                                            initial='hidden'
-                                            animate='pulse'
-                                            className='absolute top-0 left-0 w-2 h-2 bg-emerald-700 rounded-full'>
-                                        </motion.div>
-                                        <motion.div
-                                            variants={dotVariants}
-                                            initial='hidden'
-                                            animate='pulse'
-                                            className='absolute top-0 left-0 w-2 h-2 bg-emerald-700 rounded-full'>
-                                        </motion.div>
-                                        <motion.div
-                                            variants={dotVariants}
-                                            initial='hidden'
-                                            animate='pulse'
-                                            className='absolute top-0 left-0 w-2 h-2 bg-emerald-700 rounded-full'>
-                                        </motion.div>
-
-                                    </span>
                                 </Link>
                             </p>
                         </motion.div>
