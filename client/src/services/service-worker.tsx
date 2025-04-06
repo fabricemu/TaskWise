@@ -9,7 +9,7 @@ const urlsToCache = [
 ];
 
 // Install Service Worker
-self.addEventListener("install", (event) => {
+self.addEventListener("install", (event: ExtendableEvent) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log("Opened cache");
@@ -19,7 +19,7 @@ self.addEventListener("install", (event) => {
 });
 
 // Activate Service Worker
-self.addEventListener("activate", (event) => {
+self.addEventListener("activate", (event: ExtendableEvent) => {
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
     caches.keys().then((cacheNames) =>
@@ -36,7 +36,7 @@ self.addEventListener("activate", (event) => {
 });
 
 // Fetch Resources
-self.addEventListener("fetch", (event) => {
+self.addEventListener("fetch", (event: FetchEvent) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
       // Serve cached resources, or fetch them if not cached

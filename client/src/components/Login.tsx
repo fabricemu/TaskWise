@@ -119,6 +119,27 @@ const Login = () => {
                                 Don't have an account?{" "}
                                 <Link to="/signup" className="text-emerald-700 font-semibold hover:underline">
                                     Sign up
+                                    <span className='relative flex items-center justify-center gap-2'>
+                                        <motion.div
+                                            variants={dotVariants}
+                                            initial='hidden'
+                                            animate='pulse'
+                                            className='absolute top-0 left-0 w-2 h-2 bg-emerald-700 rounded-full'>
+                                        </motion.div>
+                                        <motion.div
+                                            variants={dotVariants}
+                                            initial='hidden'
+                                            animate='pulse'
+                                            className='absolute top-0 left-0 w-2 h-2 bg-emerald-700 rounded-full'>
+                                        </motion.div>
+                                        <motion.div
+                                            variants={dotVariants}
+                                            initial='hidden'
+                                            animate='pulse'
+                                            className='absolute top-0 left-0 w-2 h-2 bg-emerald-700 rounded-full'>
+                                        </motion.div>
+
+                                    </span>
                                 </Link>
                             </p>
                         </motion.div>

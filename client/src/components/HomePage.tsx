@@ -22,10 +22,6 @@ const HomePage = () => {
                         <div className="flex items-center gap-1 font-bold"><TaskAlt/>TaskWise</div>
                         <Link to='/login'>
                             <motion.button
-                                variants={fadeIn('left', 0.6)}
-                                initial='hidden'
-                                animate='show'
-                                exit='hidden'
                                 whileHover={{scale: 1.1, cursor:'pointer'}}
                                 whileTap={{scale: 0.95}}
                                 whileDrag={{scale: 0.9, rotate: 10}}
@@ -39,7 +35,7 @@ const HomePage = () => {
                     <h2 className="text-xl text-gray-700 font-bold mb-4 text-center">Welcome to TaskWise
                         Application</h2>
                     <motion.h1
-                        variants={fadeIn('right', 0.4)}
+                        variants={fadeIn('right', 0.2)}
                         initial='hidden'
                         animate='show'
                         className='font-medium mb-5'>TaskWise is a web-based task management system designed to help
@@ -109,9 +105,6 @@ const HomePage = () => {
                     </p>
                     <Link to='/signup'>
                         <motion.button
-                            variants={fadeIn('up', 0.6)}
-                            initial='hidden'
-                            animate='show'
                             whileHover={{scale: 1.1, cursor:'pointer'}}
                             whileTap={{scale: 0.95}}
                             whileDrag={{scale: 0.9, rotate: 10}}

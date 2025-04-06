@@ -87,3 +87,15 @@ export const hoverListEffect = () => {
         },
     };
 }
+export const loadingTreeDotsPulse = () => {
+    return {
+        pulse: {
+            scale: [1, 1.5, 1],
+            transition: {
+                duration: 1.2,
+                ease: "easeInOut",
+                repeat: Infinity,
+            }
+        }
+    };
+}

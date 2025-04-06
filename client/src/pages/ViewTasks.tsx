@@ -179,11 +179,12 @@ const ViewTasks = () => {
                         </table>
                     </div>
                 </div>
+
             </main>
 
             {/* Notification */}
             {message && (
-                <div className="fixed bottom-4 right-4 bg-emerald-500 text-white p-4 rounded">
+                <div className="fixed top-4 right-[35%] centered bg-emerald-600 text-white p-4 rounded">
                     {message}
                 </div>
             )}
