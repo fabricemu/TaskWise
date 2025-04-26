@@ -13,7 +13,12 @@ const Index = () => {
 
     const fetchTasks = async () => {
         try {
-            const tasksData = await getTasks(1); // Assuming user ID = 1
+            const userId = localStorage.getItem('userId'); // Fetch user ID from local storage
+            if (!userId) {
+                console.error("User ID not found in local storage");
+                return;
+            }
+            const tasksData = await getTasks(userId); // Use the dynamic user ID
             setTasks(tasksData);
         } catch (error) {
             console.error("Error fetching tasks:", error);
@@ -81,4 +86,3 @@ const Index = () => {
 };
 
 export default Index;
-

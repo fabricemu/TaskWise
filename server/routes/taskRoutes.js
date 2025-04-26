@@ -1,51 +1,112 @@
 const express = require('express');
-const pool = require('../db');
+const {
+  createTask,
+  getTasks,
+  updateTask,
+  deleteTask,
+} = require('../controllers/taskController');
 const router = express.Router();
 
-router.post('/tasks', async (req, res) => {
-  const { user_id, title, description, status } = req.body;
+/**
+ * @swagger
+ * /api/tasks:
+ *   post:
+ *     summary: Create a new task
+ *     tags: [Tasks]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               userId:
+ *                 type: integer
+ *               title:
+ *                 type: string
+ *               description:
+ *                 type: string
+ *               status:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Task created successfully
+ *       500:
+ *         description: Server error
+ */
+router.post('/tasks', createTask);
 
-  try {
-    const newTask = await pool.query(
-      'INSERT INTO tasks (user_id, title, description, status) VALUES ($1, $2, $3, $4) RETURNING *',
-      [user_id, title, description, status || 'pending']
-    );
-    res.status(201).json(newTask.rows[0]);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+/**
+ * @swagger
+ * /api/tasks/{userId}:
+ *   get:
+ *     summary: Get tasks for a user
+ *     tags: [Tasks]
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: List of tasks
+ *       500:
+ *         description: Server error
+ */
+router.get('/tasks/:userId', getTasks);
 
-router.get('/tasks/:user_id', async (req, res) => {
-  try {
-    const tasks = await pool.query('SELECT * FROM tasks WHERE user_id = $1', [req.params.user_id]);
-    res.json(tasks.rows);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+/**
+ * @swagger
+ * /api/tasks/{id}:
+ *   put:
+ *     summary: Update a task
+ *     tags: [Tasks]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *               description:
+ *                 type: string
+ *               status:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Task updated successfully
+ *       500:
+ *         description: Server error
+ */
+router.put('/tasks/:id', updateTask);
 
-router.put('/tasks/:id', async (req, res) => {
-  const { title, description, status } = req.body;
-
-  try {
-    const updatedTask = await pool.query(
-      'UPDATE tasks SET title = $1, description = $2, status = $3 WHERE id = $4 RETURNING *',
-      [title, description, status, req.params.id]
-    );
-    res.json(updatedTask.rows[0]);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
-router.delete('/tasks/:id', async (req, res) => {
-  try {
-    await pool.query('DELETE FROM tasks WHERE id = $1', [req.params.id]);
-    res.json({ message: 'Task deleted successfully' });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+/**
+ * @swagger
+ * /api/tasks/{id}:
+ *   delete:
+ *     summary: Delete a task
+ *     tags: [Tasks]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Task deleted successfully
+ *       500:
+ *         description: Server error
+ */
+router.delete('/tasks/:id', deleteTask);
 
 module.exports = router;

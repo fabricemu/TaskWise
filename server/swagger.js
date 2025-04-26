@@ -17,7 +17,7 @@ const swaggerDefinition = {
 
 const options = {
   swaggerDefinition,
-  apis: ['./routes/*.js'], // Specify your route files for annotations
+  apis: ['./routes/auth.js', './routes/taskRoutes.js'],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

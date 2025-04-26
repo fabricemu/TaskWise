@@ -31,7 +31,7 @@ const AddTask = () => {
                 setMessage("Task updated successfully!");
             } else {
                 // Create a new task
-                await createTask({...formData, user_id: 1});
+                await createTask({...formData, userId: 1});
                 setMessage("Task added successfully!");
             }
             setFormData({title: "", description: "", status: "pending"});
@@ -91,3 +91,4 @@ const AddTask = () => {
 };
 
 export default AddTask;
+
